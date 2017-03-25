@@ -31,7 +31,15 @@ auto main() -> int
 
         // draw stuff
 
-        SDL_FillRect(surface, NULL, SDL_MapRGB(surface->format, 0xFF, 0xFF, 0xFF));
+        // backgound
+        const auto white = SDL_MapRGB(surface->format, 0xFF, 0xFF, 0xFF);
+        SDL_FillRect(surface, NULL, white);
+
+        // rectangle
+        const auto black = SDL_MapRGB(surface->format, 0, 0, 0);
+        const auto rect = SDL_Rect{10, 10, 10, 10};
+        SDL_FillRect(surface, &rect, black);
+
         SDL_UpdateWindowSurface(window);
     }
 
